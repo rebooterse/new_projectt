@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout_FullScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:mContext=".FullScreenImage">
+
+    <com.ortiz.touchview.TouchImageView
+        android:id="@+id/full_screen_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:src="@drawable/bridget" />
+
+    <ImageButton
+        android:id="@+id/backBtn_FullScreen"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/blackTransparent"
+        android:src="@drawable/ic_arrow_back_black_30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/info_btn_fullScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/full_screen_image"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/blackTransparent"
+        android:src="@drawable/ic_info_outline_white_30dp" />
+
+    <LinearLayout
+        android:id="@+id/infoAllTexts_fullScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/shopName_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="New Yorker"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:id="@+id/clothePrice_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="7000 դրամ"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/cityName_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="Citiy name"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/address_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="Address"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/clotheSize_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="Clothe sizes"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/clotheColor_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="Clothe colors"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/about_fullScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:paddingStart="15dp"
+            android:text="About"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</RelativeLayout>

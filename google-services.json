@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1074761239059",
+    "firebase_url": "https://sktrchiban.firebaseio.com",
+    "project_id": "sktrchiban",
+    "storage_bucket": "sktrchiban.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074761239059:android:d1f83a027561e3f8",
+        "android_client_info": {
+          "package_name": "com.mxn.soul.flowingdr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074761239059-fdmvinti00frdlruvi2c5409k0r8k3pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwthGi3W_ZX_3IbEgLu3pobqqUs1oQi2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074761239059-fdmvinti00frdlruvi2c5409k0r8k3pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
