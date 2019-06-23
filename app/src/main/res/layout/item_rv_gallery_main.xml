@@ -7,6 +7,8 @@
         android:id="@+id/image_gallery_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="0.5dp"
+        android:layout_marginBottom="0.5dp"
         android:adjustViewBounds="true"
         android:minWidth="40dp"
         android:minHeight="40dp"
@@ -30,22 +32,22 @@
         android:visibility="invisible" />
 
     <ImageButton
-        android:layout_toStartOf="@id/null_view"
         android:id="@+id/onImage_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_toStartOf="@id/null_view"
         android:background="@color/blackTransparent"
         android:scaleType="center"
         android:src="@drawable/ic_favorite_border_white_24dp"
         android:visibility="invisible" />
 
     <View
-        android:visibility="invisible"
-        android:layout_centerInParent="true"
         android:id="@+id/null_view"
         android:layout_width="8dp"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/onImage_fullScreen"

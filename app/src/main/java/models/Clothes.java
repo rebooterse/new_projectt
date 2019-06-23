@@ -4,6 +4,15 @@ package models;
 
 public class Clothes {
 
+    int nkar ;
+
+    public Clothes(int nkar) {
+        this.nkar = nkar;
+    }
+
+    public int getNkar() {
+        return nkar;
+    }
 
     private String clotheImage;
     private String shopName,price, address;

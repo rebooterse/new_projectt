@@ -2,7 +2,9 @@
 package fragments;
 
 import com.mxn.soul.flowingdr.R;
+import com.mxn.soul.flowingdr.SalesActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -34,6 +36,7 @@ public class MenuListFragment extends Fragment {
         vNavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
+                startActivity(new Intent(getContext(), SalesActivity.class));
                 Toast.makeText(getActivity(),menuItem.getTitle(),Toast.LENGTH_SHORT).show();
                 return false;
             }
