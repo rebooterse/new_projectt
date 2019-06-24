@@ -1,6 +1,7 @@
 package adapters;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mxn.soul.flowingdr.FullScreenImage;
 import com.mxn.soul.flowingdr.MainActivity;
@@ -29,6 +33,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import dmax.dialog.SpotsDialog;
+import fragments.SaveImages;
 import models.Clothes;
 import models.Shoes;
 
@@ -37,6 +43,8 @@ public class RecyclerViewGalleryMain extends RecyclerView.Adapter<RecyclerViewGa
     private
 
     String img;
+
+    private  int p = 0;
 
 
     private ImageView imageViewForFullScreen;
@@ -74,14 +82,18 @@ public class RecyclerViewGalleryMain extends RecyclerView.Adapter<RecyclerViewGa
             int def = MainActivity.shoesList.get(position).getImage();
             viewHolder.image.setImageResource(def);
         } else if (MainActivity.x == 1) {
+
          img = MainActivity.finalList.get(position).getClotheImage();
          Uri uri = Uri.parse(img);
          Picasso.with(mContext)
                  .load(uri)
                  .into(viewHolder.image);
-//            int orinakImg = MainActivity.finalList.get(position).getClotheImage();
-//            viewHolder.image.setImageResource(orinakImg);
+
+         saveImgae();
+
+
         }
+
 
         viewHolder.image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,43 +137,49 @@ public class RecyclerViewGalleryMain extends RecyclerView.Adapter<RecyclerViewGa
             }
         });
     }
-//   private static Target getTarget(final String url){
-//        Target target = new Target(){
-//
-//            @Override
-//            public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
-//                new Thread(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-//
-//                        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/" + url);
-//                        try {
-//                            file.createNewFile();
-//                            FileOutputStream ostream = new FileOutputStream(file);
-//                            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, ostream);
-//                            ostream.flush();
-//                            ostream.close();
-//                        } catch (IOException e) {
-//                            Log.e("IOException", e.getLocalizedMessage());
-//                        }
-//                    }
-//                }).start();
-//
-//            }
-//
-//            @Override
-//            public void onBitmapFailed(Drawable errorDrawable) {
-//
-//            }
-//
-//            @Override
-//            public void onPrepareLoad(Drawable placeHolderDrawable) {
-//
-//            }
-//        };
-//        return target;
-//    }
+    private void saveImgae(){
+
+
+        if(p==0){
+
+            @SuppressLint("HandlerLeak") final Handler handler = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+                    for (int i = 0; i < clothesList.size(); i++) {
+                        final Uri uriAdress = Uri.parse(clothesList.get(i).getClotheImage());
+                      p = 1;
+
+
+                        final int finalI = i;
+
+                        Picasso.with(mContext)
+                                .load(uriAdress)
+                                .into(new SaveImages(mContext,
+                                        mContext.getApplicationContext().getContentResolver(), String.valueOf(finalI), "image description"));
+
+                    }
+                }
+            };
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    handler.sendMessage(new Message());
+
+
+                }
+
+            });
+            thread.start();
+
+
+        }
+
+    }
+
+
+
 
     @Override
     public int getItemCount() {
